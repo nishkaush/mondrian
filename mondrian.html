@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        body {
+            position: relative;
+            background: linear-gradient(#FAFFD1, #A1FFCE);
+            height: 700px;
+        }
+
+        #maindiv {
+            height: 400px;
+            width: 28%;
+            border: 1px solid black;
+            margin: 3em auto;
+        }
+
+        #div1 {
+            background-color: indigo;
+            width: 400px;
+            height: 100px;
+        }
+
+        #row1 {
+            width: 100px;
+            height: 100px;
+            background-color: gold;
+        }
+
+        #div2 {
+            background-color: magenta;
+            width: 400px;
+            height: 100px;
+        }
+
+        #row2 {
+            width: 100px;
+            height: 100px;
+            background-color: navy;
+        }
+
+        #div3 {
+            background-color: cyan;
+            width: 400px;
+            height: 100px;
+        }
+
+        #row3 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        #div4 {
+            background-color: green;
+            width: 400px;
+            height: 100px;
+        }
+
+        #row4 {
+            width: 100px;
+            height: 100px;
+            background-color: ivory;
+        }
+
+        #colors {
+            height: 20%;
+            width: 4%;
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            top: 37%;
+            left: 25%;
+        }
+
+        #lime {
+            background-color: lime;
+            border: 1px solid black;
+            flex: 1;
+        }
+
+        #blue {
+            background-color: blue;
+            border: 1px solid black;
+            flex: 1;
+        }
+
+        #red {
+            background-color: red;
+            border: 1px solid black;
+            flex: 1;
+        }
+
+        .instructions {
+            margin: 3em auto;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: palatino, sans-serif;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="maindiv">
+
+
+        <div id="div1">
+            <div id="row1" class="firstcol"></div>
+        </div>
+
+        <div id="div2">
+            <div id="row2" class="firstcol"></div>
+        </div>
+
+        <div id="div3">
+            <div id="row3" class="firstcol"></div>
+        </div>
+
+        <div id="div4">
+            <div id="row4" class="firstcol"></div>
+        </div>
+
+
+    </div>
+
+
+    <div id="colors">
+        <div id="lime"></div>
+        <div id="blue"></div>
+        <div id="red"></div>
+    </div>
+
+    <div class="instructions">Click on a color from left hand side pallete, then click in the main color board to fill it</div>
+    <script type="text/javascript">
+        var row1 = document.getElementById("row1"); //for choosing color purposes
+        var row2 = document.getElementById("row2");
+        var row3 = document.getElementById("row3");
+        var row4 = document.getElementById("row4");
+
+        var div1 = document.getElementById("div1");
+        var div2 = document.getElementById("div2");
+        var div3 = document.getElementById("div3");
+        var div4 = document.getElementById("div4");
+
+        var lime = document.getElementById("lime");
+        var blue = document.getElementById("blue");
+        var red = document.getElementById("red");
+
+
+        //create a for loop on all div elements so add event listener can be assigned to all
+        //and if a click occurs, a random variable will tell us the vairbale name the element is associated with. so if div4 is clicked, the variable should give us "div4";
+
+
+
+        lime.addEventListener("click", func1);
+        red.addEventListener("click", func2);
+        blue.addEventListener("click", func3);
+
+        function func1() {
+            finalfun("lime");
+        }
+
+        function func2() {
+            finalfun("red");
+        }
+
+        function func3() {
+            finalfun("blue");
+        }
+
+
+        function finalfun(color) {
+
+            div1.addEventListener("click", fundiv1);
+
+            function fundiv1() {
+                div1.style.backgroundColor = color;
+            }
+
+            div2.addEventListener("click", fundiv2);
+
+            function fundiv2() {
+                div2.style.backgroundColor = color;
+            }
+
+            div3.addEventListener("click", fundiv3);
+
+            function fundiv3() {
+                div3.style.backgroundColor = color;
+            }
+
+            div4.addEventListener("click", fundiv4);
+
+            function fundiv4() {
+                div4.style.backgroundColor = color;
+            }
+
+            //ev.stopPropagation();
+
+            row1.addEventListener("click", funrow1);
+
+            function funrow1(e) {
+                row1.style.backgroundColor = color;
+                e.stopPropagation();
+            }
+
+            row2.addEventListener("click", funrow2);
+
+            function funrow2(e) {
+                row2.style.backgroundColor = color;
+                e.stopPropagation();
+            }
+
+            row3.addEventListener("click", funrow3);
+
+            function funrow3(e) {
+                row3.style.backgroundColor = color;
+                e.stopPropagation();
+            }
+
+            row4.addEventListener("click", funrow4);
+
+            function funrow4(e) {
+                row4.style.backgroundColor = color;
+                e.stopPropagation();
+            }
+        }
+    </script>
+
+</body>
+
+
+</html>
